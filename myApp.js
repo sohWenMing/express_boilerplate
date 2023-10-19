@@ -8,7 +8,7 @@ console.log("Hello World");
 // });
 
 const staticPath = __dirname + '/public';
-app.use('public', express.static(staticPath));
+app.use('/public', express.static(staticPath));
 const absolutePath = __dirname + '/views/index.html';
 app.get('/', function(req, res) {
     res.sendFile(absolutePath);
