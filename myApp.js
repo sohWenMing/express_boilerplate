@@ -9,11 +9,14 @@ console.log("Hello World");
 // });
 
 const staticPath = __dirname + '/public';
+app.use(function(req, res, next) {
+    console.log(`${req.method} ${req.path} - ${req.ip}`);
+    next();
+})
 app.use('/public', express.static(staticPath));
 app.get('/json', function(req, res) {
     let message = "Hello json";
     if(process.env.MESSAGE_STYLE === "uppercase") {
-        console.log("enviroment variable is tracking correctly");
         message = message.toUpperCase();
     }
     else{
