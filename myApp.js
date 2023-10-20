@@ -31,6 +31,13 @@ app.get('/', function(req, res) {
     res.sendFile(absolutePath);
 })
 
+app.get('/now', (req, res, next) => {
+    req.time = new Date().toString();
+    console.log(req);
+    next()
+}, (req, res) => {
+    res.json({time: req.time});
+});
 
 
 
