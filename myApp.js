@@ -33,11 +33,14 @@ app.get('/', function(req, res) {
 
 app.get('/now', (req, res, next) => {
     req.time = new Date().toString();
-    console.log(req);
     next()
 }, (req, res) => {
     res.json({time: req.time});
 });
+
+app.get('/:word/echo', (req, res) => {
+    res.json({"echo": req.params.word});
+})
 
 
 
