@@ -14,6 +14,9 @@ app.get('/json', function(req, res) {
     if(process.env.MESSAGE_STYLE === "uppercase") {
         console.log("uppercase");
     }
+    else{
+        console.log(process.env.MESSAGE_STYLE);
+    }
     res.json({"message": "Hello json"});
 })
 const absolutePath = __dirname + '/views/index.html';
