@@ -11,7 +11,7 @@ const staticPath = __dirname + '/public';
 app.use('/public', express.static(staticPath));
 app.get('/json', function(req, res) {
     let message = "Hello json";
-    if(process.env.MESSAGE_STYLE = "uppercase") {
+    if(process.env.MESSAGE_STYLE === "uppercase") {
         console.log("uppercase");
     }
     res.json({"message": "Hello json"});
