@@ -9,6 +9,9 @@ console.log("Hello World");
 
 const staticPath = __dirname + '/public';
 app.use('/public', express.static(staticPath));
+app.get('/json', function(req, res) {
+    res.json({"message": "Hello json");
+})
 const absolutePath = __dirname + '/views/index.html';
 app.get('/', function(req, res) {
     res.sendFile(absolutePath);
