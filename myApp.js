@@ -2,6 +2,9 @@ let express = require('express');
 let app = express();
 require('dotenv').config();
 const bodyParser = require('body-parser');
+function returnNameString(firstName, lastName) {
+    return firstName + " " + lastName;
+}
 
 console.log("Hello World");
 
@@ -45,13 +48,16 @@ app.get('/:word/echo', (req, res) => {
 })
 app.route('/name').get(
     (req, res) => {
-        const nameString = req.query.first + " " + req.query.last;
+        const nameString = returnNameString(req.query.first, req.query.last);
         res.json({
             name: nameString
         })
 
 }).post((req, res) => {
-    console.log("this was a post");
+    const nameString = returnNameString(req.body.first, req.body.last);
+    res.json({
+        name: nameString
+    })
 })
 
 
