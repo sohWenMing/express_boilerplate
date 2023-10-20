@@ -20,7 +20,8 @@ app.get('/json', function(req, res) {
         console.log(process.env.MESSAGE_STYLE);
         console.log("environent variable is not tracking correctly");
     }
-    res.json({"message": "Hello json"});
+    res.json({"message": message});
+        
 })
 const absolutePath = __dirname + '/views/index.html';
 app.get('/', function(req, res) {
